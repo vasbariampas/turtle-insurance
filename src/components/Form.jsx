@@ -12,7 +12,7 @@ export default function EnquiryForm({selectedPackage}) {
   useEffect(() => {
    if(selectedPackage){
       setFormData({...formData, message: `Hello, I would like to know more about ${selectedPackage}. Please get in touch on the provided email. Thank you.`})
-   }
+   }// eslint-disable-next-line
   }, [])
 
   const handleChange = (e) => {
