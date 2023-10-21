@@ -18,14 +18,19 @@ export default function App(){
 
    function onNavButtonClick(elementId){
       const element = document.getElementById(elementId);
-      element.scrollIntoView();
+      element.scrollIntoView({ block: "center"});
+   }
+
+   function onProductSelected(packageName){
+      setSelectedPackage(packageName);
+      onNavButtonClick("enquiryform");
    }
 
    return (
       <>
          <NavigationHeader onNavButtonClick={onNavButtonClick} /> 
          <Home />
-         <Products onSelect={(selection) => setSelectedPackage(selection)} />
+         <Products onSelect={onProductSelected} />
          <Form selectedPackage={selectedPackage} />
       </>
    )

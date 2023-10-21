@@ -15,6 +15,22 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <style>
+      /* CSS for the footer */
+      .footer {
+          background-color: #333;
+          color: #fff;
+          padding: 10px 0;
+          margin-top: 20px;
+          text-align: center;
+          font-size: 16px;
+      }
+
+      /* CSS for the copyright message */
+      .copyright {
+          font-size: 14px;
+      }
+  </style>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -40,4 +56,9 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <footer class="footer">
+    <div class="container">
+        <p>&copy; 2023 Turtle Insurance. All rights reserved.</p>
+    </div>
+</footer>
 </html>

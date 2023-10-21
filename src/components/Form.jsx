@@ -3,17 +3,16 @@ import "../styles/form.css";
 
 export default function EnquiryForm({selectedPackage}) {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    contactNumber: '',
-    message: '',
+    name: "",
+    email: "",
+    contactNumber: "",
+    message: "",
   });
 
   useEffect(() => {
-   if(selectedPackage){
-      setFormData({...formData, message: `Hello, I would like to know more about ${selectedPackage}. Please get in touch on the provided email. Thank you.`})
-   }// eslint-disable-next-line
-  }, [])
+    if (selectedPackage && selectedPackage.trim() !== "")
+    setFormData(formData => ({...formData, message: `Hello, I would like to know more about ${selectedPackage}. Please get in touch on the provided email. Thank you.`}))
+  }, [selectedPackage])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,10 +21,6 @@ export default function EnquiryForm({selectedPackage}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add code to send the form data to your email here
-    //console.log('Form data submitted:', formData);
-
-    
   };
 
   return (
