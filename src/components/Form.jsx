@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "../styles/form.css";
 
-export default function EnquiryForm({selectedPackage}) {
+export default function EnquiryForm({selectedPackage, clearSelectedPackage}) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,6 +16,9 @@ export default function EnquiryForm({selectedPackage}) {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    if (name === "message" && !value.includes(selectedPackage)){
+      clearSelectedPackage();
+    }
     setFormData({ ...formData, [name]: value });
   };
 

@@ -6,7 +6,7 @@ import Form from "./components/Form.jsx";
 import "./styles/app.css";
 
 export default function App(){
-   const [selectedPackage, setSelectedPackage] = useState(null);
+   const [selectedPackage, setSelectedPackage] = useState("");
 
    useEffect(() => {
       window.scrollTo({
@@ -22,8 +22,8 @@ export default function App(){
    }
 
    function onProductSelected(packageName){
-      setSelectedPackage(packageName);
       onNavButtonClick("enquiryform");
+      setSelectedPackage(packageName);
    }
 
    return (
@@ -31,7 +31,7 @@ export default function App(){
          <NavigationHeader onNavButtonClick={onNavButtonClick} /> 
          <Home />
          <Products onSelect={onProductSelected} />
-         <Form selectedPackage={selectedPackage} />
+         <Form selectedPackage={selectedPackage} clearSelectedPackage={() => setSelectedPackage("")} />
       </>
    )
 }

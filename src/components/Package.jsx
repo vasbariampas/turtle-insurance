@@ -11,6 +11,11 @@ export default function Package({
       premium : "Premium Reptile Resilience",
       platinum : "Platinum Peace of Mind"
    }
+
+   function onButtonClick(e){
+      e.preventDefault();
+      onSelect(tiers[id]);
+   }
    
    return(
       <div id={id} className="package-container">
@@ -20,7 +25,7 @@ export default function Package({
                <li key={perk}>{perk}</li>
             )}
          </ul>
-         <button className="package-button" onClick={() => onSelect(tiers[id])}>Select this tier</button>
+         <button className="package-button" onClick={onButtonClick}>Select this tier</button>
       </div>
    )
 }
