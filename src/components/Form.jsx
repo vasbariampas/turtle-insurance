@@ -11,7 +11,7 @@ export default function EnquiryForm({selectedPackage, clearSelectedPackage}) {
 
   useEffect(() => {
     if (selectedPackage && selectedPackage.trim() !== "")
-    setFormData(formData => ({...formData, message: `Hello, I would like to know more about ${selectedPackage}. Please get in touch on the provided email. Thank you.`}))
+    setFormData(formData => ({...formData, message: `Hello, I would like to know more about ${selectedPackage}. Please get in touch on the provided email or contact number. Thank you.`}))
   }, [selectedPackage])
 
   const handleChange = (e) => {
@@ -19,6 +19,7 @@ export default function EnquiryForm({selectedPackage, clearSelectedPackage}) {
     if (name === "message" && !value.includes(selectedPackage)){
       clearSelectedPackage();
     }
+    
     setFormData({ ...formData, [name]: value });
   };
 
@@ -48,6 +49,7 @@ export default function EnquiryForm({selectedPackage, clearSelectedPackage}) {
         />
         <input
           type="tel"
+          pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
           name="contactNumber"
           placeholder="Contact Number"
           value={formData.contactNumber}
